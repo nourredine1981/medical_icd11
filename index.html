@@ -214,7 +214,268 @@ ICD-10-CM-Guidelines-April-1 FY2024.pdf</a></p>
 Simulation Projects in 2024</a></h1>
 <hr>
 
-  <h1 align="center">
+  <h1 align="left">
+
+<u>MedImageInsight - le modèle d’intégration de l’imagerie médicale</u><p>
+MedImageInsight, un modèle d'intégration d'imagerie médicale open-source. 
+MedImageInsight est entraîné sur des images médicales avec des textes et des 
+étiquettes associés dans une large gamme de domaines, y compris les 
+radiographies, les tomodensitogrammes (CT), les imageries par résonance 
+magnétique (IRM), les dermoscopies, les tomographies par cohérence optique 
+(OCT), les photographies du fond de l'œil, les échographies, l'histopathologie 
+et les mammographies.</p>
+<p>Le modèle de base MedImageInsight pour la santé est un modèle puissant qui 
+peut traiter une grande variété d’images médicales. Ces images comprennent des 
+radiographies, des tomodensitogrammes, des IRM, de la photographie clinique, de 
+la dermoscopie, de l’histopathologie, des échographies et des images de 
+mammographie.</p>
+<p>Un modèle d’intégration peut servir de base à de nombreuses solutions 
+différentes, de la classification à des scénarios plus complexes tels que 
+l’appariement de groupes ou la détection des valeurs aberrantes. L’animation 
+suivante montre un modèle d’incorporation utilisé pour la recherche de 
+similarité d’images et pour détecter les images qui sont des valeurs aberrantes.</p>
+<p>&nbsp;Des évaluations rigoureuses démontrent la capacité de MedImageInsight à 
+atteindre des performances de pointe (SOTA) ou de niveau expert humain dans les 
+tâches de classification, de recherche d’image à image et de mise au point. </p>
+<p>Plus précisément, sur les ensembles de données publics, MedImageInsight 
+atteint ou dépasse les performances SOTA dans la classification et la recherche 
+de maladies par rayons X thoraciques, la classification et la recherche en 
+dermatologie, la classification et la recherche par tomographie par cohérence 
+optique (OCT) et la récupération d’images médicales 3D. </p>
+<p>Le modèle atteint également des performances proches de celles de SOTA pour 
+la classification et la recherche histopathologiques.</p>
+<p>Des évaluations rigoureuses montrent que MedImageInsight atteint des 
+performances de pointe (SOTA) ou un niveau d'expertise humaine pour la 
+classification, la recherche image-image et les tâches d'ajustement. </p>
+<p>Plus précisément, sur les ensembles de données publics, MedImageInsight 
+atteint des résultats de pointe dans la recherche d'images médicales 3D CT, 
+ainsi que dans la classification des maladies et la recherche pour les 
+radiographies thoraciques, la dermatologie et l'imagerie OCT. </p>
+<p>De plus, MedImageInsight atteint des performances d'expert humain pour 
+l'estimation de l'âge osseux (à la fois sur des données publiques et 
+partenaires) et un AUC supérieur à 0.9 dans la plupart des autres domaines.</p>
+<p>Lorsqu'il est associé à un décodeur de texte, MedImageInsight atteint un 
+niveau de génération de rapports d'image unique proche de l'état de l'art avec 
+moins de 10 % des paramètres des autres modèles. </p>
+<p>Comparé à un ajustement fin de GPT-4o uniquement avec les données MIMIC-CXR 
+pour la même tâche, MedImageInsight dépasse les métriques cliniques, mais est 
+inférieur aux métriques lexicales où GPT-4o établit un nouvel état de l'art.</p>
+<p>Pour des raisons réglementaires, MedImageInsight peut générer des courbes 
+ROC, ajuster la sensibilité et la spécificité en fonction des besoins cliniques 
+et fournir un support décisionnel basé sur des preuves via la recherche 
+image-image (ce qui peut également permettre une génération augmentée par 
+récupération).</p>
+<p>&nbsp;Dans une évaluation clinique indépendante de la recherche image-image 
+dans les radiographies thoraciques, MedImageInsight a surpassé tous les autres 
+modèles de fondation disponibles publiquement évalués par de larges marges (plus 
+de 6 points AUC) et a significativement surpassé les autres modèles en termes 
+d'équité de l'IA (en fonction de l'âge et du sexe). </p>
+<p>Nous espérons que la mise en ligne de MedImageInsight contribuera à améliorer 
+les progrès collectifs dans la recherche et le développement de l'IA en imagerie 
+médicale.</p>
+<p>Le modèle MedImageInsight peut être déployé sur notre solution d’inférence 
+gérée auto-hébergée, vous permettant de personnaliser et de contrôler chaque 
+aspect de la manière dont le modèle est servi. Voici comment procéder :</p>
+<ol start="1">
+	<li><strong>Interface Utilisateur du Catalogue</strong> :<ul>
+		<li>Vous pouvez déployer MedImageInsight via Azure AI Foundry ou Azure 
+		Machine Learning Studio. Ces plateformes offrent une interface intuitive 
+		pour gérer et déployer des modèles d’IA sans nécessiter de programmation 
+		approfondie.</li>
+		<li><strong>Étapes</strong> :<ol start="1">
+			<li>Accédez à votre compte Azure et ouvrez Azure AI Foundry ou Azure 
+			Machine Learning Studio.</li>
+			<li>Naviguez vers le catalogue et sélectionnez MedImageInsight.</li>
+			<li>Suivez les instructions à l’écran pour configurer et 
+			personnaliser le déploiement selon vos besoins spécifiques.</li>
+		</ol>
+		</li>
+	</ul>
+	</li>
+	<li><strong>Déploiement par Programmation</strong> :<ul>
+		<li>Si vous préférez une approche plus flexible et automatisée, vous 
+		pouvez utiliser des scripts pour déployer MedImageInsight.</li>
+		<li><strong>Exemple de Code</strong> (en Python) :</li>
+	</ul>
+	</li>
+</ol>
+<div>
+	<div>
+		python</div>
+	<div class="rounded-b-xl bg-background-static-850 px-4 pb-1.5 dark:bg-background-static-900">
+		<div>
+			<pre><code><span initial="start" animate="end" variants="[object Object]" custom="0">from azureml.core import Workspace, Model, Environment, ScriptRunConfig
+
+# Accéder à votre espace de travail Azure
+ws = Workspace.from_config()
+
+# Télécharger le modèle MedImageInsight
+model = Model(ws, 'MedImageInsight')
+
+# Définir l'environnement d'exécution
+env = Environment.get(workspace=ws, name='AzureML-TensorFlow-2.3-CPU')
+
+# Configuration du script d'inférence
+inference_config = ScriptRunConfig(source_directory='./inference', script='score.py', environment=env)
+
+# Enregistrer l'environnement et le modèle
+inference_config.run_config.target = &quot;local&quot;
+
+# Déploiement du modèle
+service = Model.deploy(ws, &quot;medimageinsight-service&quot;, [model], inference_config, overwrite=True)
+service.wait_for_deployment(show_output=True)
+
+print(f&quot;Service State: {service.state}&quot;)
+print(f&quot;Scoring URI: {service.scoring_uri}&quot;)
+</span></code></pre>
+		</div>
+	</div>
+</div>
+<ol start="3">
+	<li><strong>Gestion et Surveillance</strong> :<ul>
+		<li>Après le déploiement, vous pouvez gérer et surveiller le modèle via 
+		le portail Azure ou via des outils programmatiques. Assurez-vous de 
+		tester le modèle pour garantir qu'il répond correctement aux besoins 
+		cliniques et réglementaires.</li>
+	</ul>
+	</li>
+</ol>
+<p>En utilisant ces méthodes, vous pouvez pleinement intégrer MedImageInsight 
+dans votre flux de travail, en profitant de ses capacités avancées pour 
+améliorer les résultats cliniques. </p>
+<p>Pour déployer et utiliser le modèle MedImageInsight sur GitHub, suivez ces 
+étapes détaillées :</p>
+<h3>Déploiement via Interface Utilisateur</h3>
+<ol start="1">
+	<li><strong>Accédez au Catalogue</strong> :<ul>
+		<li>Allez dans Azure AI Foundry ou Azure Machine Learning Studio.</li>
+		<li>Recherchez le modèle MedImageInsight dans le catalogue.</li>
+		<li>Sélectionnez la carte du modèle pour accéder à sa page de 
+		présentation.</li>
+	</ul>
+	</li>
+	<li><strong>Déployez le Modèle</strong> :<ul>
+		<li>Cliquez sur &quot;Déployer&quot;.</li>
+		<li>Choisissez l'option de calcul géré auto-hébergé.</li>
+		<li>Complétez les détails nécessaires dans la fenêtre de déploiement.</li>
+		<li>Sélectionnez &quot;Déployer&quot; pour commencer le déploiement.</li>
+	</ul>
+	</li>
+</ol>
+<h3>Déploiement par Programmation</h3>
+<p>Pour ceux qui préfèrent une approche automatisée, voici un exemple de code 
+Python pour déployer MedImageInsight :</p>
+<div>
+	<div>
+		python</div>
+	<div class="rounded-b-xl bg-background-static-850 px-4 pb-1.5 dark:bg-background-static-900">
+		<div>
+			<pre><code><span initial="start" animate="end" variants="[object Object]" custom="0">from azureml.core import Workspace, Model, Environment, ScriptRunConfig
+
+# Accédez à votre espace de travail Azure
+ws = Workspace.from_config()
+
+# Téléchargez le modèle MedImageInsight
+model = Model(ws, 'MedImageInsight')
+
+# Définir l'environnement d'exécution
+env = Environment.get(workspace=ws, name='AzureML-TensorFlow-2.3-CPU')
+
+# Configuration du script d'inférence
+inference_config = ScriptRunConfig(source_directory='./inference', script='score.py', environment=env)
+
+# Enregistrez l'environnement et le modèle
+inference_config.run_config.target = &quot;local&quot;
+
+# Déployer le modèle
+service = Model.deploy(ws, &quot;medimageinsight-service&quot;, [model], inference_config, overwrite=True)
+service.wait_for_deployment(show_output=True)
+
+print(f&quot;Service State: {service.state}&quot;)
+print(f&quot;Scoring URI: {service.scoring_uri}&quot;)
+</span></code></pre>
+		</div>
+	</div>
+</div>
+<h3>Utilisation de l'API REST</h3>
+<ol start="1">
+	<li><strong>Initialisation du Client</strong> :</li>
+</ol>
+<div>
+	<div>
+		python</div>
+	<div class="rounded-b-xl bg-background-static-850 px-4 pb-1.5 dark:bg-background-static-900">
+		<div>
+			<pre><code><span initial="start" animate="end" variants="[object Object]" custom="0">from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+ml_client_workspace = MLClient.from_config(credential)
+</span></code></pre>
+		</div>
+	</div>
+</div>
+<ol start="2">
+	<li><strong>Envoi de Données et Récupération des Embeddings</strong> :</li>
+</ol>
+<div>
+	<div>
+		python</div>
+	<div class="rounded-b-xl bg-background-static-850 px-4 pb-1.5 dark:bg-background-static-900">
+		<div>
+			<pre><code><span initial="start" animate="end" variants="[object Object]" custom="0">import base64
+import json
+import os
+
+endpoint_name = &quot;medimageinsight&quot;
+deployment_name = &quot;medimageinsight-v1&quot;
+sample_image_xray = os.path.join('path_to_your_image')
+
+def read_image(image_path):
+    with open(image_path, &quot;rb&quot;) as f:
+        return f.read()
+
+data = {
+    &quot;input_data&quot;: {
+        &quot;columns&quot;: [&quot;image&quot;, &quot;text&quot;],
+        &quot;index&quot;: [0],
+        &quot;data&quot;: [
+            [
+                base64.encodebytes(read_image(sample_image_xray)).decode(&quot;utf-8&quot;),
+                &quot;x-ray chest anteroposterior Pneumonia&quot;
+            ]
+        ],
+    },
+    &quot;params&quot;: {
+        &quot;get_scaling_factor&quot;: True
+    },
+}
+
+# Créez la requête JSON
+request_file_name = &quot;sample_request_data.json&quot;
+with open(request_file_name, &quot;w&quot;) as request_file:
+    json.dump(data, request_file)
+
+response = ml_client_workspace.online_endpoints.invoke(
+    endpoint_name=endpoint_name,
+    deployment_name=deployment_name,
+    request_file=request_file_name,
+)
+
+print(response)
+</span></code></pre>
+		</div>
+	</div>
+</div>
+<h3>Documentation et Ressources</h3>
+<p>Pour plus d'informations, consultez la
+<button type="button" initial="start" animate="end" variants="[object Object]" custom="0">
+documentation officielle d'Azure</button>.</p>
+<p>En suivant ces étapes, vous serez en mesure de déployer et d'utiliser le 
+modèle MedImageInsight efficacement sur GitHub</p>
+<p _msttexthash="162457555" _msthash="335" style="box-sizing: inherit; outline-color: inherit; margin: 1rem 0px 0px; padding: 0px; overflow-wrap: break-word; font-family: &quot;Segoe UI&quot;, SegoeUI, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; background-color: initial; color: initial; text-decoration-color: initial;">&nbsp;</p>
+<p>&nbsp;</p>
+<h1 align="left">
 
 <br><br>
 <p>
