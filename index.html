@@ -159,6 +159,30 @@
     </style>
 </head>
 <body>
+    <form>
+        <label for="contexte">Choisissez un contexte :</label>
+        <select id="contexte">
+            <option value="biologie">Biologie (animal)</option>
+            <option value="figure">Sens figuré</option>
+        </select>
+        <button type="submit">Traduire</button>
+    </form>
+    <p id="resultat"></p>
+    <script>
+        const form = document.querySelector('form');
+        const resultat = document.getElementById('resultat');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const contexte = document.getElementById('contexte').value;
+            if (contexte === 'biologie') {
+                resultat.textContent = 'La traduction espagnole est : estar en celo';
+            } else {
+                resultat.textContent = 'Veuillez préciser le contexte pour une traduction plus précise.';
+            }
+        });
+    </script>
+
     <h1>Classification de la sexualité des femmes</h1>
     <h2>ICD-9, ICD-10 et ICD-11</h2>
 
