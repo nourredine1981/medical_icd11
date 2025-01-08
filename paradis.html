@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qui ira au paradis ?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, select, button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Qui ira au paradis ?</h1>
+  <form id="gameForm">
+    <label for="sexe">Sexe :</label>
+    <select id="sexe" required>
+      <option value="" disabled selected>Choisir...</option>
+      <option value="homme">Homme</option>
+      <option value="femme">Femme</option>
+    </select>
+    <br>
+    <label for="performance">Performance (1-10) :</label>
+    <input type="number" id="performance" min="1" max="10" required>
+    <br>
+    <button type="button" onclick="determineParadis()">Vérifier</button>
+  </form>
+  <h2 id="resultat"></h2>
+
+  <script>
+    function determineParadis() {
+      const sexe = document.getElementById("sexe").value;
+      const performance = parseInt(document.getElementById("performance").value);
+      const resultat = document.getElementById("resultat");
+
+      if (!sexe || isNaN(performance)) {
+        resultat.textContent = "Veuillez remplir tous les champs correctement.";
+        return;
+      }
+
+      let message;
+
+      if (sexe === "homme") {
+        message = performance > 7 
+          ? "Félicitations, vous allez au paradis !" 
+          : "Désolé, essayez de meilleures performances.";
+      } else if (sexe === "femme") {
+        message = performance > 5 
+          ? "Félicitations, vous allez au paradis !" 
+          : "Désolé, essayez de meilleures performances.";
+      }
+
+      resultat.textContent = message;
+    }
+  </script>
+</body>
+</html>
