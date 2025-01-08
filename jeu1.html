@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Freud - Réponses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        button {
+            padding: 15px 25px;
+            margin: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .response {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Le Jeu de Freud</h1>
+        <p>Quel est votre choix ?</p>
+
+        <button onclick="giveAnswer('rêve')">Rêve</button>
+        <button onclick="giveAnswer('liberté')">Liberté</button>
+        <button onclick="giveAnswer('chocolat')">Chocolat</button>
+        <button onclick="giveAnswer('voiture')">Voiture</button>
+
+        <div class="response" id="responseText"></div>
+    </div>
+
+    <script>
+        function giveAnswer(choice) {
+            let response = '';
+            
+            switch(choice) {
+                case 'rêve':
+                    response = "Le rêve symbolise souvent un désir refoulé. Freud dirait que vous êtes en quête d'évasion.";
+                    break;
+                case 'liberté':
+                    response = "La liberté est un désir profond de contrôle sur votre vie. Un conflit possible avec l'autorité.";
+                    break;
+                case 'chocolat':
+                    response = "Le chocolat peut représenter un besoin de réconfort ou un désir de satisfaction immédiate.";
+                    break;
+                case 'voiture':
+                    response = "La voiture est souvent un symbole de pouvoir et d'indépendance. Vous cherchez à vous affirmer.";
+                    break;
+                default:
+                    response = "Choisissez une option pour découvrir ce que Freud en pense!";
+            }
+
+            document.getElementById('responseText').innerText = response;
+        }
+    </script>
+
+</body>
+</html>
