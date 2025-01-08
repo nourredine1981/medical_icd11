@@ -1,3 +1,5 @@
+
+
 setInterval(() => {
   // get time indicator elements
   let hours = document.getElementById('hours');
@@ -48,3 +50,42 @@ setInterval(() => {
   dotM.style.transform = `rotate(${m * 6}deg)`;
   dotS.style.transform = `rotate(${s * 6}deg)`;
 }, 1000);
+
+
+
+let bitcoinCount = 0;
+let miningPower = 1;
+
+// DOM Elements
+const bitcoinCountEl = document.getElementById("bitcoin-count");
+const miningPowerEl = document.getElementById("mining-power");
+const mineBtn = document.getElementById("mine-btn");
+const upgradeBtn = document.getElementById("upgrade-btn");
+
+// Mine Bitcoin
+mineBtn.addEventListener("click", () => {
+    bitcoinCount += miningPower;
+    updateUI();
+});
+
+// Upgrade Mining Power
+upgradeBtn.addEventListener("click", () => {
+    const upgradeCost = 10;
+    if (bitcoinCount >= upgradeCost) {
+        bitcoinCount -= upgradeCost;
+        miningPower += 1;
+        updateUI();
+    }
+});
+
+// Update UI
+function updateUI() {
+    bitcoinCountEl.textContent = bitcoinCount;
+    miningPowerEl.textContent = miningPower;
+
+    // Enable or disable upgrade button
+    upgradeBtn.disabled = bitcoinCount < 10;
+}
+
+// Initial UI Update
+updateUI();
