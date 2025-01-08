@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Freud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #006400;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            background-color: #006400;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004d00;
+        }
+        .response {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000080;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Jeu de Freud : Analyse des Réponses</h1>
+        <p>Entrez un mot et laissez Freud analyser vos pensées inconscientes.</p>
+        <input type="text" id="wordInput" placeholder="Entrez un mot..." />
+        <button onclick="analyze()">Analyser</button>
+
+        <div id="analysisResult" class="response"></div>
+    </div>
+
+    <script>
+        const analyses = {
+            "rêve": "Ah, un rêve ! Cela peut être un refoulement de votre désir inconscient d'échapper à la réalité.",
+            "liberté": "La liberté, c'est un désir profond d'indépendance, peut-être un conflit avec votre moi social.",
+            "chocolat": "Le chocolat représente souvent une tentative de combler un manque affectif, un désir de confort.",
+            "voiture": "La voiture peut symboliser la quête de contrôle, de pouvoir et d'auto-exploration.",
+            "mer": "La mer, c'est l'inconscient, un vaste espace de pensées et de désirs refoulés.",
+            "chat": "Les chats peuvent représenter des aspects de la féminité ou un désir caché de tranquillité.",
+            "maison": "La maison, symboliquement, peut être le lieu de votre propre psyché. Qu'est-ce qu'elle cache ?",
+            "école": "L'école peut refléter votre passé, l'autorité et les premières expériences sociales qui ont marqué votre développement."
+        };
+
+        function analyze() {
+            const inputWord = document.getElementById('wordInput').value.trim().toLowerCase();
+            const resultDiv = document.getElementById('analysisResult');
+            
+            if (analyses[inputWord]) {
+                resultDiv.innerHTML = "Interprétation Freudienne : " + analyses[inputWord];
+            } else {
+                resultDiv.innerHTML = "Hmm... Ce mot n'est pas encore analysé par Freud. Essayez un autre mot !";
+            }
+        }
+    </script>
+
+</body>
+</html>
