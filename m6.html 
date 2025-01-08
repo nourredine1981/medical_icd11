@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ça peut vous arriver - M6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004080;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #004080;
+        }
+        .case, .highlight {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+        footer {
+            text-align: center;
+            background: #004080;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            color: #004080;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ça peut vous arriver</h1>
+        <p>Avec Julien Courbet sur M6</p>
+    </header>
+    <main>
+        <section>
+            <h2>À propos de l'émission</h2>
+            <p>"Ça peut vous arriver" est une émission quotidienne diffusée sur M6 et RTL, animée par Julien Courbet. Elle aide les téléspectateurs à résoudre des litiges grâce à une équipe d'experts juridiques et de négociateurs.</p>
+        </section>
+
+        <section>
+            <h2>Cas résolus récemment</h2>
+            <div class="case">
+                <h3>Litige sur un achat de voiture</h3>
+                <p>Un client a été remboursé après avoir acheté une voiture défectueuse. L'équipe de Julien Courbet a négocié un remboursement complet avec le vendeur.</p>
+            </div>
+            <div class="case">
+                <h3>Remboursement d'un voyage annulé</h3>
+                <p>Une agence de voyage a accepté de rembourser une cliente après l'annulation de son séjour pour des raisons médicales.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Les meilleurs moments</h2>
+            <div class="highlight">
+                <h3>Une négociation intense en direct</h3>
+                <p>Regardez comment Julien Courbet a réussi à convaincre un assureur de payer une indemnité bloquée depuis deux ans.</p>
+                <a href="https://www.youtube.com/watch?v=g-tBniBn8aM" target="_blank">Voir la vidéo</a>
+            </div>
+            <div class="highlight">
+                <h3>Un client ému après avoir récupéré ses économies</h3>
+                <p>Un moment touchant où un spectateur récupère 15 000€ après des mois de litige avec une banque.</p>
+                <a href="https://www.youtube.com/watch?v=g-tBniBn8aM" target="_blank">Voir la vidéo</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Ça peut vous arriver - Tous droits réservés</p>
+    </footer>
+</body>
+</html>
