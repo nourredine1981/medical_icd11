@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz : Comment draguer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .answers button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .answers button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz : Comment draguer</h1>
+        <div id="quiz">
+            <div class="question" id="question">Question 1 : Que dites-vous en premier lors d’une rencontre ?</div>
+            <div class="answers">
+                <button onclick="checkAnswer(1)">A. Salut, t’es trop mignon(ne) !</button>
+                <button onclick="checkAnswer(2)">B. Bonjour, ça va ?</button>
+                <button onclick="checkAnswer(3)">C. Rien, je fais un sourire mystérieux.</button>
+            </div>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const questions = [
+            {
+                question: "Que dites-vous en premier lors d’une rencontre ?",
+                answers: ["Salut, t’es trop mignon(ne) !", "Bonjour, ça va ?", "Rien, je fais un sourire mystérieux."],
+                correct: 2
+            },
+            {
+                question: "Que faites-vous lors d’un rendez-vous ?",
+                answers: ["Parlez sans arrêt de vous-même.", "Posez des questions et écoutez.", "Évitez de parler."],
+                correct: 2
+            }
+        ];
+
+        function checkAnswer(answer) {
+            const result = document.getElementById("result");
+            if (answer === questions[currentQuestion - 1].correct) {
+                result.textContent = "Bonne réponse !";
+            } else {
+                result.textContent = "Mauvaise réponse, essayez encore.";
+            }
+
+            setTimeout(() => {
+                nextQuestion();
+            }, 2000);
+        }
+
+        function nextQuestion() {
+            const quiz = document.getElementById("quiz");
+            const result = document.getElementById("result");
+            result.textContent = "";
+            if (currentQuestion < questions.length) {
+                currentQuestion++;
+                const questionElement = document.getElementById("question");
+                questionElement.textContent = `Question ${currentQuestion} : ${questions[currentQuestion - 1].question}`;
+
+                const buttons = document.querySelectorAll(".answers button");
+                buttons.forEach((button, index) => {
+                    button.textContent = questions[currentQuestion - 1].answers[index];
+                });
+            } else {
+                quiz.innerHTML = "<h2>Quiz terminé ! Vous avez terminé toutes les questions.</h2>";
+            }
+        }
+    </script>
+</body>
+</html>
